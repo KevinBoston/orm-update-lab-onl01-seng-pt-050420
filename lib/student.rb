@@ -56,7 +56,9 @@ class Student
   end
   def self.find_by_name(name)
     sql = <<-SQL
-    SELECT * FROM students WHERE name = ?
+    SELECT * 
+    FROM students 
+    WHERE name = ?
     SQL
     found_student = DB[:conn].execute(sql, name)
     Student.new_from_db(found_student)
