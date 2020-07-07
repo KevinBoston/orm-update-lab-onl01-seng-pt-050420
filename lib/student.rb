@@ -48,4 +48,11 @@ class Student
     new_s = Student.new(name, grade)
     new_s.save
   end
+  def self.new_from_db(row)
+    sql = <<-SQL
+    SELECT *
+    
+    
+    SQL
+    DB[:conn].execute(sql)
 end
