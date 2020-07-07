@@ -61,8 +61,7 @@ class Student
     WHERE name = ?
     LIMIT 1
     SQL
-    found_student = DB[:conn].execute(sql, name)
-    Student.new_from_db(found_student)
+    DB[:conn].execute(sql, name).map {|row|Student.new_from_db(row)}.first
   end
     
 end
